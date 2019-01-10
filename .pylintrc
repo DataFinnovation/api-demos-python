@@ -1,0 +1,10 @@
+[BASIC]
+
+# requests has some issues with pylint
+# https://github.com/requests/requests/issues/2417
+# https://github.com/PyCQA/pylint/issues/1411
+# https://stackoverflow.com/questions/12443988/make-pylint-tolerate-requests
+generated-members=requests.codes.*
+
+# this is demo code, some duplication is a fact of life
+disable=duplicate-code

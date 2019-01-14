@@ -16,7 +16,7 @@ def main():
     # https://userdocs.dfnapp.com/
     # the query dsl is documented at:
     # https://www.elastic.co/guide/en/elasticsearch/reference/6.3/query-dsl.html
-    dsl_query= {
+    dsl_query = {
         "query": {
             "term" : {
                 "companyname": "microsoft"

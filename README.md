@@ -72,8 +72,12 @@ likely pull them from something like the document and fact searches above.
 Some simple wrapper code to handle oauth2 matters.  This whole API
 requires OAuth2 tokens.  
 
+### [df_wrappers.py](df_wrappers.py)
+Higher level wrappers for use in real-world examples.  These serve
+to keep the demo code clean.
+
 ### [requirements.txt](requirements.txt)
-Contains the basic dependencies for the demos to work
+Contains the basic dependencies for the demos to work.
 
 ### [requirements_more.txt](requirements_more.txt)
 Contains a larger set of dependencies.  These are

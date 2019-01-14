@@ -4,8 +4,6 @@ This operates at a higher level than oauth2_wrappers and is intended
 for substantive examples.
 """
 
-import json
-
 import oauth2_wrappers
 
 def prep_token(**kwargs):
@@ -20,7 +18,7 @@ def facts_dslquery(dsl_dict, **kwargs):
     token = prep_token(**kwargs)
     api_url = 'facts/dslquery'
     param_dict = kwargs.get('params', {})
-    post_dict = {'dslquery' : json.dumps(dsl_dict)}
+    post_dict = {'dslquery' : dsl_dict}
     resp_data = oauth2_wrappers.df_post(api_url, token, post_dict, param_dict)
     return resp_data
 
@@ -29,7 +27,7 @@ def documents_dslquery(dsl_dict, **kwargs):
     token = prep_token(**kwargs)
     api_url = 'documents/dslquery'
     param_dict = kwargs.get('params', {})
-    post_dict = {'dslquery' : json.dumps(dsl_dict)}
+    post_dict = {'dslquery' : dsl_dict}
     resp_data = oauth2_wrappers.df_post(api_url, token, post_dict, param_dict)
     return resp_data
 

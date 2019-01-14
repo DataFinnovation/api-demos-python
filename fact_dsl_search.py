@@ -1,7 +1,5 @@
 """api example to search for facts by ES DSL"""
 
-import json
-
 # our helpers
 import oauth2_wrappers
 
@@ -23,7 +21,7 @@ def main():
             }
         }
     }
-    dsl_dict = {'dslquery' : json.dumps(dsl_query)}
+    dsl_dict = {'dslquery' : dsl_query}
 
     # and any query params
     query_dict = {'maxresult' : 2}

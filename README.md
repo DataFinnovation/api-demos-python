@@ -14,7 +14,8 @@ To use any of these scripts set three environment variables:
 You can find these at https://webclient.dfnapp.com/.
 
 ## API Documentation
-This API is documented at https://clientapi.dfnapp.com/swagger-ui.html#/.
+This API is documented at
+https://app.swaggerhub.com/apis-docs/datafinnovation/clientapi/1.0/.
 
 The simplest thing to do is work through these examples in the order
 they are given.

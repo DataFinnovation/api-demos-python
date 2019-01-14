@@ -11,8 +11,7 @@ To use any of these scripts set three environment variables:
 * **DF_CLIENT_SECRET** to your API login secret
 * **DF_API_KEY** to your API key
 
-You can generate these for your web application at
-https://webclient.dfnapp.com/.
+You can find these at https://webclient.dfnapp.com/.
 
 ## API Documentation
 This API is documented at https://clientapi.dfnapp.com/swagger-ui.html#/.

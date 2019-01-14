@@ -36,6 +36,7 @@ TOKEN_URL = 'https://apiauth.dfnapp.com/oauth2/token'
 API_URL_STUB = 'https://clientapi.dfnapp.com/'
 
 # full list of scopes
+# note that you may not be permissioned for all scopes for all logins
 DEFAULT_SCOPE = 'clientapi/basicsearch clientapi/advancedsearch'
 
 # simple wrapper that builds the required headers

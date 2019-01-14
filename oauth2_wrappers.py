@@ -25,6 +25,7 @@ except ImportError as _:
 # feel free to set directly if you prefer
 CLIENT_ID = os.environ['DF_CLIENT_ID']
 CLIENT_SECRET = os.environ['DF_CLIENT_SECRET']
+API_KEY = os.environ['DF_API_KEY']
 
 # url to generate access tokens
 # these are documented at http://webclient.dfnapp.com/ where
@@ -37,9 +38,13 @@ API_URL_STUB = 'https://clientapi.dfnapp.com/'
 # full list of scopes
 DEFAULT_SCOPE = 'clientapi/basicsearch clientapi/advancedsearch'
 
+# simple wrapper that builds the required headers
+# this includes both our (transient) access token and
+# the api key
 def bearer_auth_headers(token):
     """simple wrapper to build the bearer-token authorization headers"""
-    headers = {'Authorization' : 'Bearer '+token}
+    headers = {'Authorization' : 'Bearer '+token,
+               'x-api-key' : API_KEY}
     return headers
 
 # this does not include detailed error handling etc

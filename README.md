@@ -6,9 +6,10 @@ Basic wrappers to facilitate this are included as part of the demo
 package and this code can run with the standard
 libraries + requests.
 
-To use any of these scripts set two environment variables:
+To use any of these scripts set three environment variables:
 * **DF_CLIENT_ID** to your client ID
 * **DF_CLIENT_SECRET** to your API login secret
+* **DF_API_KEY** to your API key
 
 You can generate these for your web application at
 https://webclient.dfnapp.com/.

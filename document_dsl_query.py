@@ -1,5 +1,7 @@
 """api example to search for documents by ES DSL"""
 
+import json
+
 # our helpers
 import oauth2_wrappers
 
@@ -14,13 +16,14 @@ def main():
     # https://userdocs.dfnapp.com/
     # the query dsl is documented at:
     # https://www.elastic.co/guide/en/elasticsearch/reference/6.3/query-dsl.html
-    dsl_dict = {
+    dsl_query = {
         "query": {
             "term" : {
                 "companyname": "microsoft"
             }
         }
     }
+    dsl_dict = {'dslquery' : json.dumps(dsl_query)}
 
     # and any query params
     query_dict = {'maxresult' : 2}

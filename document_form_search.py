@@ -9,15 +9,9 @@ def main():
     token = oauth2_wrappers.gen_token()
 
     # set up our simple query string
-    #
-    # the field names are:
-    # filingsource, companyname, startdate, enddate, reportdate,
-    # filingtime, retrievaltime, key, units, context, fieldname,
-    # fieldTag, fieldvalue, reporttype, filerid, reportid
-    #
-    # and the matchTypes are:
-    # exactMatch, exactMatchAny, startsWith, wildcard, contains,
-    # containsPhrase, commonTerms
+    # 
+    # field names and matchTypes are documented at
+    # https://app.swaggerhub.com/apis-docs/datafinnovation/clientapi/1.0/
     query_dict = {
         "fields": {
             "companyname": {

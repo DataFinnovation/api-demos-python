@@ -9,7 +9,7 @@ def main():
     token = oauth2_wrappers.gen_token()
 
     # set up our simple query string
-    # 
+    #
     # field names and matchTypes are documented at
     # https://app.swaggerhub.com/apis-docs/datafinnovation/clientapi/1.0/
     query_dict = {

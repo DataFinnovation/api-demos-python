@@ -15,24 +15,31 @@ def prep_token(**kwargs):
 
 def facts_dslquery(dsl_dict, **kwargs):
     """Sends off a facts dslquery"""
+    return _dslquery('facts', dsl_dict, **kwargs)
+
+def documents_dslquery(dsl_dict, **kwargs):
+    """Sends off a documents dslquery"""
+    return _dslquery('documents', dsl_dict, **kwargs)
+
+def _dslquery(url_stub, dsl_dict, **kwargs):
+    """ internal dslquery wrapper"""
     token = prep_token(**kwargs)
-    api_url = 'facts/dslquery'
+    api_url = url_stub + '/dslquery'
     param_dict = kwargs.get('params', {})
     post_dict = {'dslquery' : dsl_dict}
     resp_data = oauth2_wrappers.df_post(api_url, token, post_dict, param_dict)
     return resp_data
 
-def documents_dslquery(dsl_dict, **kwargs):
-    """Sends off a facts dslquery"""
-    token = prep_token(**kwargs)
-    api_url = 'documents/dslquery'
-    param_dict = kwargs.get('params', {})
-    post_dict = {'dslquery' : dsl_dict}
-    resp_data = oauth2_wrappers.df_post(api_url, token, post_dict, param_dict)
-    return resp_data
+def facts_stringquery(querystring, simplequery, **kwargs):
+    """Sends off a string query for facts"""
+    return _stringquery('facts', querystring, simplequery, **kwargs)
 
 def documents_stringquery(querystring, simplequery, **kwargs):
     """Sends off a string query for documents"""
+    return _stringquery('documents', querystring, simplequery, **kwargs)
+
+def _stringquery(url_stub, querystring, simplequery, **kwargs):
+    """wrapper for stringquery calls"""
     token = prep_token(**kwargs)
     query_dict = {'querystring':querystring,
                   'simplequery':simplequery}
@@ -40,7 +47,7 @@ def documents_stringquery(querystring, simplequery, **kwargs):
         query_dict['sortfield'] = kwargs['sortfield']
     if 'sortascending' in kwargs:
         query_dict['sortascending'] = kwargs['sortascending']
-    api_url = 'documents/textquery'
+    api_url = url_stub + '/textquery'
     resp_data = oauth2_wrappers.df_get(api_url, token, query_dict)
     return resp_data
 

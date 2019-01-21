@@ -99,3 +99,8 @@ the non-search field & value interface.
 ### [count_filing_arrivals.py](count_filing_arrivals.py)
 Count how many filings we have, by month, from the US SEC or
 Japan EDINET.
+
+### [bitcoin_occurrences.py](bitcoin_occurrences.py)
+Count how many accounting entries have bitcoin in the name, and
+how many unique companies have filed such entries.  Break down
+totals by year.

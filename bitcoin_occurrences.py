@@ -36,7 +36,7 @@ def main():
         }
 
         # send off the query
-        resp_data = facts_dslquery(dsl_dict,params=params)
+        resp_data = facts_dslquery(dsl_dict, params=params)
         # keep unique list of company names from results
         companies = []
         for hit in resp_data['hits']:

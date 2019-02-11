@@ -104,3 +104,7 @@ Japan EDINET.
 Count how many accounting entries have bitcoin in the name, and
 how many unique companies have filed such entries.  Break down
 totals by year.
+
+### [korea_client_prospect.py](korea_client_prospect.py)
+Finds the names of companies that have filed fields containing
+given sets of words.

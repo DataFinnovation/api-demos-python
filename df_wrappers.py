@@ -43,6 +43,8 @@ def _stringquery(url_stub, querystring, simplequery, **kwargs):
     token = prep_token(**kwargs)
     query_dict = {'querystring':querystring,
                   'simplequery':simplequery}
+    if 'maxresult' in kwargs:
+        query_dict['maxresult'] = kwargs['maxresult']
     if 'sortfield' in kwargs:
         query_dict['sortfield'] = kwargs['sortfield']
     if 'sortascending' in kwargs:
@@ -59,5 +61,13 @@ def document_field_values(doc_key, field_names, **kwargs):
                  'fieldNames': field_names}
     resp_data = oauth2_wrappers.df_post(fields_url, token, post_dict, {})
     return resp_data
+
+def document_field_names(doc_key, **kwargs):
+    """Sends off a field name query for a document"""
+    token = prep_token(**kwargs)
+    names_url = 'docfieldnames'
+    post_dict = {'documentKey' : doc_key}
+    resp_data = oauth2_wrappers.df_post(names_url, token, post_dict, {})
+    return resp_data['fieldNames']
 
 # eof

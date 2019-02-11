@@ -82,7 +82,8 @@ Contains the basic dependencies for the demos to work.
 ### [requirements_more.txt](requirements_more.txt)
 Contains a larger set of dependencies.  These are
 not strictly required but have better error handling.  If you run into
-trouble start by installing them.
+trouble start by installing them.  Some of the "Real World Examples"
+below also require additional packages.
 
 ## Real World Examples
 We also include some non-toy cases.
@@ -107,4 +108,15 @@ totals by year.
 
 ### [korea_client_prospect.py](korea_client_prospect.py)
 Finds the names of companies that have filed fields containing
-given sets of words.
+given sets of words. This example focuses on derivative trading
+client prospects -- but changing the keywords can easily
+refocus the script.
+
+### [footnote_sentiment_feed.py](footnote_sentiment_feed.py)
+Grabs recent text footnotes from the US SEC and runs them through
+a simple sentiment classifier.  Note this script requires two
+additional dependencies:
+[BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
+and
+[Vader Sentiment](https://github.com/cjhutto/vaderSentiment).
+These are included in the requirements_more.txt file.

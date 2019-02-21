@@ -123,5 +123,5 @@ These are included in the requirements_more.txt file.
 
 ### [japan_filing_translate.py](japan_filing_translate.py)
 Grabs a block of fields from Japanese filings and runs their
-contents through Google Translate.  This shows how seamlessly
-we feed UTF encoded text through the API.
+contents through [Google Translate](https://pypi.org/project/googletrans/).
+This shows how seamlessly we feed UTF encoded text through the API.

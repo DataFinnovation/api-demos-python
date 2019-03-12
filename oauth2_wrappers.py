@@ -45,6 +45,7 @@ DEFAULT_SCOPE = 'clientapi/basicsearch clientapi/advancedsearch'
 def bearer_auth_headers(token):
     """simple wrapper to build the bearer-token authorization headers"""
     headers = {'Authorization' : 'Bearer '+token,
+               'Content-Type' : 'application/json',
                'x-api-key' : API_KEY}
     return headers
 

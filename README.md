@@ -125,3 +125,8 @@ These are included in the requirements_more.txt file.
 Grabs a block of fields from Japanese filings and runs their
 contents through [Google Translate](https://pypi.org/project/googletrans/).
 This shows how seamlessly we feed UTF encoded text through the API.
+
+### [trump_tax_cuts.py](trump_tax_cuts.py)
+Finds records related to the Tax Cuts and Jobs Act of 2017 and
+prints out (company name , field name) pairs that were filed.
+These are all *ad hoc* non-standard non-GAAP fields.

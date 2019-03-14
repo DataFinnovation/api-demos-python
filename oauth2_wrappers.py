@@ -23,17 +23,29 @@ except ImportError as _:
 
 # grab these from the environment
 # feel free to set directly if you prefer
-CLIENT_ID = os.environ['DF_CLIENT_ID']
-CLIENT_SECRET = os.environ['DF_CLIENT_SECRET']
-API_KEY = os.environ['DF_API_KEY']
+# all in functions so you can set up environment within calling
+# python if you prefer
+def client_id():
+    """the api client id"""
+    return os.environ['DF_CLIENT_ID']
+def client_secret():
+    """the api client secret"""
+    return os.environ['DF_CLIENT_SECRET']
+def api_key():
+    """the api key"""
+    return os.environ['DF_API_KEY']
 
-# url to generate access tokens
 # these are documented at http://webclient.dfnapp.com/ where
 # you set up client ids and secrets
-TOKEN_URL = 'https://apiauth.dfnapp.com/oauth2/token'
+def token_url():
+    """url to generate access tokens"""
+    return os.environ.get('DF_TOKEN_URL',
+                          'https://apiauth.dfnapp.com/oauth2/token')
 
-# api url starting stub
-API_URL_STUB = 'https://clientapi.dfnapp.com/'
+def api_url_stub():
+    """api url starting stub"""
+    return os.environ.get('DF_API_URL_STUB',
+                          'https://clientapi.dfnapp.com/')
 
 # full list of scopes
 # note that you may not be permissioned for all scopes for all logins
@@ -46,7 +58,7 @@ def bearer_auth_headers(token):
     """simple wrapper to build the bearer-token authorization headers"""
     headers = {'Authorization' : 'Bearer '+token,
                'Content-Type' : 'application/json',
-               'x-api-key' : API_KEY}
+               'x-api-key' : api_key()}
     return headers
 
 # this does not include detailed error handling etc
@@ -55,7 +67,7 @@ def bearer_auth_headers(token):
 def gen_token_base(scope=DEFAULT_SCOPE):
     """simple code to generate an auth token"""
     # build a basic auth object
-    the_auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
+    the_auth = requests.auth.HTTPBasicAuth(client_id(), client_secret())
 
     # this header is needed to generate a token
     headers = {'Content-Type' : 'application/x-www-form-urlencoded'}
@@ -68,7 +80,7 @@ def gen_token_base(scope=DEFAULT_SCOPE):
 
     # send off the post request
     resp = requests.post(
-        TOKEN_URL,
+        token_url(),
         auth=the_auth,
         data=body,
         headers=headers
@@ -82,14 +94,14 @@ def gen_token_base(scope=DEFAULT_SCOPE):
 def gen_token_deps(scope=DEFAULT_SCOPE):
     """this version is built around more capable libraries"""
     # basic object setup
-    client = oauthlib.oauth2.BackendApplicationClient(client_id=CLIENT_ID)
-    auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
+    client = oauthlib.oauth2.BackendApplicationClient(client_id=client_id())
+    auth = requests.auth.HTTPBasicAuth(client_id(), client_secret())
 
     # prep the oauth2 request
     oauth = requests_oauthlib.OAuth2Session(client=client, scope=scope)
 
     # grab the token and return it
-    token = oauth.fetch_token(token_url=TOKEN_URL, auth=auth)
+    token = oauth.fetch_token(token_url=token_url(), auth=auth)
     return token['access_token']
 
 def gen_token(**kwargs):
@@ -113,7 +125,7 @@ def append_query_dict_to_url(url_in, query_dict):
 def df_get(url, token, query_dict):
     """wrapper for requests.get which handles bearer oauth2 tokens"""
     # generate url, bearer headers, send request and decode result
-    full_url = API_URL_STUB + append_query_dict_to_url(url, query_dict)
+    full_url = api_url_stub() + append_query_dict_to_url(url, query_dict)
     headers = bearer_auth_headers(token)
     resp = requests.get(full_url, headers=headers)
     resp_data = json.loads(resp.content)
@@ -128,7 +140,7 @@ def df_post(url, token, data, query_dict):
     """wrapper for requests.post which handles bearer oauth2 tokens"""
     # generate url, bearer headers, send request and decode result
     # note that we json-encode the dict for posting
-    full_url = API_URL_STUB + append_query_dict_to_url(url, query_dict)
+    full_url = api_url_stub() + append_query_dict_to_url(url, query_dict)
     headers = bearer_auth_headers(token)
     resp = requests.post(full_url, headers=headers, data=json.dumps(data))
     resp_data = json.loads(resp.content)

@@ -130,3 +130,9 @@ This shows how seamlessly we feed UTF encoded text through the API.
 Finds records related to the Tax Cuts and Jobs Act of 2017 and
 prints out (company name , field name) pairs that were filed.
 These are all *ad hoc* non-standard non-GAAP fields.
+
+### [esg_scan.py](esg_scan.py)
+An example environmental & social governance scan script.  This is
+a two-pass query where we first find relevant companies and then
+find relevant fields for those companies.  Shows how to build up
+query power by chaining results together.

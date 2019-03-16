@@ -1,10 +1,12 @@
 """
-a two-pass example
-first identify companies with likely interesting esg characteristics
-by filtering for those that have filed fields about coal or hydro
+a two-pass example for environmental social governance research.
 
-then find all text fields containing the word environment for
-that list of companies
+first identify companies with likely interesting esg characteristics
+by filtering for those that have filed fields about coal or hydro.
+
+then find all text fields where the field names contains the
+word environment.  limit this search to only filings from that
+first list of companies.
 """
 
 from df_wrappers import facts_dslquery

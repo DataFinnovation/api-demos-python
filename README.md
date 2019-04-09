@@ -136,3 +136,19 @@ An example environmental & social governance scan script.  This is
 a two-pass query where we first find relevant companies and then
 find relevant fields for those companies.  Shows how to build up
 query power by chaining results together.
+
+## Admin Tools We Use
+Some simple administrative tools we use every day as part of running
+the system.
+
+### [count_total_filings.py](count_total_filings.py)
+Prints out, per-source, how many filings are currently available.
+
+### [last_filing_arrival_time.py](last_filing_arrival_time.py)
+Prints out, per-source, when the most-recently-indexed filing arrived.
+Sort the results from least-recently-updated to most-recently-updated.
+This is a basic way of checking if a source is currently churning out
+data.  Note that a small market with only semi-annual filings -- like Spain --
+may remain dormant for weeks or months at a time.  A larger more verbose
+data source like the US SEC is unlikely to be quiet for even a day.
+

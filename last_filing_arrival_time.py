@@ -2,6 +2,7 @@
 
 import argparse
 import datetime
+import sys
 
 from df_wrappers import documents_dslquery
 
@@ -28,9 +29,11 @@ def run_sources(source_list):
         source_date_pairs.append([source_name, last_dt])
     return source_date_pairs
 
-def main():
+def main(_):
     """
     main only parses args and passes along the parameters.
+    we use _ as the argument name to maintain compatibility with our web
+    development sandbox and appease pylint at the same time.
     """
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--cutoff', type=int, dest='cutoff', default=15,
@@ -58,6 +61,6 @@ def main():
         print(' : '.join([str(x) for x in ele]))
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
 
 # eof

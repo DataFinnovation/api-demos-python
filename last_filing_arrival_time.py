@@ -42,7 +42,8 @@ def main(_):
 
     source_name_list = ['US SEC', 'UK CH', 'Chile SVS',
                         'Peru SMV', 'Japan EDINET', 'Taiwan TWSE',
-                        'Indonesia IDX', 'Spain CNMV', 'Korea FSS']
+                        'Indonesia IDX', 'Spain CNMV', 'Korea FSS',
+                        'India BSE']
 
     source_date_pairs = run_sources(source_name_list)
 

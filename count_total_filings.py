@@ -10,7 +10,8 @@ def main():
     # A list of sources we care about.
     source_name_list = ['US SEC', 'UK CH', 'Chile SVS',
                         'Peru SMV', 'Japan EDINET', 'Taiwan TWSE',
-                        'Indonesia IDX', 'Spain CNMV', 'Korea FSS']
+                        'Indonesia IDX', 'Spain CNMV', 'Korea FSS',
+                        'India BSE']
 
     # We do not need any results, just the count.
     params = {'maxresult' : 1}

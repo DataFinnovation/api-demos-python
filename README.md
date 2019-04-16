@@ -137,6 +137,11 @@ a two-pass query where we first find relevant companies and then
 find relevant fields for those companies.  Shows how to build up
 query power by chaining results together.
 
+### [indian_bank_nonperforming_ratio.py](indian_bank_nonperforming_ratio.py)
+Pulls assets and gross non-performing assets for Indian banks
+and computes the ratio of those quantities per-bank.  Results are then
+presented in a simple CSV format.
+
 ## Admin Tools We Use
 Some simple administrative tools we use every day as part of running
 the system.

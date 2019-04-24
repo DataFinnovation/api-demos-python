@@ -142,6 +142,11 @@ Pulls assets and gross non-performing assets for Indian banks
 and computes the ratio of those quantities per-bank.  Results are then
 presented in a simple CSV format.
 
+### [fang_risk_disclosures.py](fang_risk_disclosures.py)
+This script pulls risk disclosures from the text portion of US 10-Ks
+for the FANG stocks.  As these are unstructured text we simply print out
+the retrieved records.
+
 ## Admin Tools We Use
 Some simple administrative tools we use every day as part of running
 the system.

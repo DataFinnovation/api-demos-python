@@ -147,6 +147,12 @@ This script pulls risk disclosures from the text portion of US 10-Ks
 for the FANG stocks.  As these are unstructured text we simply print out
 the retrieved records.
 
+### [press_release_sentiment.py](press_release_sentiment.py)
+This script pulls all press releases (8-Ks) for a given CIK in
+a given date range and returns the average sentiment of the text.
+This can take a while to run depending on the parameters chosen.
+The output is a single average sentiment score.
+
 ## Admin Tools We Use
 Some simple administrative tools we use every day as part of running
 the system.

@@ -21,8 +21,8 @@ def main():
                             {"match" : {"fieldname" : "1A"}},
                             # use partial names to keep it short.  For real use probably better to
                             # rely on CIK as filerid.
-                            {"terms" : {"companyname" : ['facebook','apple',
-                                                         'netflix','google',
+                            {"terms" : {"companyname" : ['facebook', 'apple',
+                                                         'netflix', 'google',
                                                          'alphabet']}}
                         ]
                     }

@@ -168,3 +168,21 @@ data.  Note that a small market with only semi-annual filings -- like Spain --
 may remain dormant for weeks or months at a time.  A larger more verbose
 data source like the US SEC is unlikely to be quiet for even a day.
 
+## Advanced User Configuration
+There are a few additional configuration environment variables advanced
+users may find useful (i.e. if testing a new feature or integration).
+
+**DF_API_URL_STUB**
+
+This environment variable allows you to specify a non-standard API
+endpoint for accessing the DataFinnovation system.
+
+**DF_BEARER_TOKEN**
+
+This environment variable bypasses the OAuth2 token generation step
+and allows you to specify your own bearer token.
+
+**DF_TOKEN_URL**
+
+This allows you to use a different endpoint to generate OAuth2 tokens.
+

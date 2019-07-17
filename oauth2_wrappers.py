@@ -34,6 +34,9 @@ def client_secret():
 def api_key():
     """the api key"""
     return os.environ['DF_API_KEY']
+def bearer_token():
+    """possible to specify a bearer token"""
+    return os.environ.get('DF_BEARER_TOKEN', None)
 
 # these are documented at http://webclient.dfnapp.com/ where
 # you set up client ids and secrets
@@ -106,6 +109,11 @@ def gen_token_deps(scope=DEFAULT_SCOPE):
 
 def gen_token(**kwargs):
     """token generating wrapper, handles dependency availability"""
+
+    # if bearer token set in environment then use that
+    bt = bearer_token()
+    if bt:
+        return bt
 
     # sort out scope, use default if nothing is provided
     scope = kwargs.get('scope', DEFAULT_SCOPE)

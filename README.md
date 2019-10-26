@@ -154,7 +154,7 @@ This can take a while to run depending on the parameters chosen.
 The output is a single average sentiment score.
 
 ## Admin Tools We Use
-Some simple administrative tools we use every day as part of running
+Some simple administrative tools we use rountinely as part of running
 the system.
 
 ### [count_total_filings.py](count_total_filings.py)
@@ -167,6 +167,10 @@ This is a basic way of checking if a source is currently churning out
 data.  Note that a small market with only semi-annual filings -- like Spain --
 may remain dormant for weeks or months at a time.  A larger more verbose
 data source like the US SEC is unlikely to be quiet for even a day.
+
+### [twse_last_quarter.py](twse_last_quarter.py)
+Count how many filings are available for the most recent quarter from
+the Taiwan TWSE data source.
 
 ## Advanced User Configuration
 There are a few additional configuration environment variables advanced

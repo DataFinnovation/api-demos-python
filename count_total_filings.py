@@ -15,6 +15,8 @@ def main():
 
     # We do not need any results, just the count.
     params = {'maxresult' : 1}
+    # total
+    total = 0
     for source_name in source_name_list:
         # Build a simple query.
         dsl_query = {
@@ -31,6 +33,9 @@ def main():
         filing_count = resp_data['totalHits']
         # And print the result, sensibly formtted.
         print(source_name + ' : ' + "{:,}".format(filing_count))
+        # increment total
+        total += filing_count
+    print('TOTAL : ' + "{:,}".format(total))
 
 if __name__ == '__main__':
     main()

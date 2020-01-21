@@ -18,7 +18,7 @@ try:
     import oauthlib
     import requests_oauthlib
     HAVE_DEPS = True
-except ImportError as _:
+except ImportError:
     HAVE_DEPS = False
 
 # grab these from the environment
@@ -50,16 +50,18 @@ def api_url_stub():
     return os.environ.get('DF_API_URL_STUB',
                           'https://clientapi.dfnapp.com/')
 
+
 # full list of scopes
 # note that you may not be permissioned for all scopes for all logins
 DEFAULT_SCOPE = 'clientapi/basicsearch clientapi/advancedsearch'
+
 
 # simple wrapper that builds the required headers
 # this includes both our (transient) access token and
 # the api key
 def bearer_auth_headers(token):
     """simple wrapper to build the bearer-token authorization headers"""
-    headers = {'Authorization' : 'Bearer '+token,
+    headers = {'Authorization' : 'Bearer ' + token,
                'Content-Type' : 'application/json',
                'x-api-key' : api_key()}
     return headers
@@ -111,9 +113,9 @@ def gen_token(**kwargs):
     """token generating wrapper, handles dependency availability"""
 
     # if bearer token set in environment then use that
-    bt = bearer_token()
-    if bt:
-        return bt
+    b_t = bearer_token()
+    if b_t:
+        return b_t
 
     # sort out scope, use default if nothing is provided
     scope = kwargs.get('scope', DEFAULT_SCOPE)
@@ -141,8 +143,7 @@ def df_get(url, token, query_dict):
     # read back the result
     if resp.status_code == requests.codes.ok:
         return resp_data
-    raise ValueError('got an error loading: '+str(resp) +
-                     '\n' + str(resp_data))
+    raise ValueError('got an error loading: ' + str(resp) + '\n' + str(resp_data))
 
 def df_post(url, token, data, query_dict):
     """wrapper for requests.post which handles bearer oauth2 tokens"""
@@ -156,7 +157,6 @@ def df_post(url, token, data, query_dict):
     # read back the result
     if resp.status_code == requests.codes.ok:
         return resp_data
-    raise ValueError('got an error loading: '+str(resp) +
-                     '\n' + str(resp_data))
+    raise ValueError('got an error loading: ' + str(resp) + '\n' + str(resp_data))
 
 # eof

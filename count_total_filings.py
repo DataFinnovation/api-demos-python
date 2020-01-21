@@ -6,7 +6,6 @@ def main():
     """
     no args
     """
-
     # A list of sources we care about.
     source_name_list = ['US SEC', 'UK CH', 'Chile SVS',
                         'Peru SMV', 'Japan EDINET', 'Taiwan TWSE',
@@ -14,7 +13,7 @@ def main():
                         'India BSE', 'US SEC Non-XBRL']
 
     # We do not need any results, just the count.
-    params = {'maxresult' : 1}
+    params = {'maxresult' : 0}
     # total
     total = 0
     for source_name in source_name_list:
@@ -36,6 +35,7 @@ def main():
         # increment total
         total += filing_count
     print('TOTAL : ' + "{:,}".format(total))
+
 
 if __name__ == '__main__':
     main()
